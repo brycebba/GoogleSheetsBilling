@@ -52,7 +52,7 @@ function profile_billing_user_page($hook, $type, $return, $params) {
 */
 function billing_user_balance($last = '', $first = '') {
 	// initialize working variables
-	// $balance = '*ERROR* Contact Admin';
+	$balance = '*ERROR* Contact Admin'; // PUT WHATEVER ERROR YOU WANT HERE
 	try {
 		$ch = curl_init();
 	
@@ -61,7 +61,7 @@ function billing_user_balance($last = '', $first = '') {
 			throw new Exception('failed to initialize');
 		}
 	
-		curl_setopt($ch, CURLOPT_URL, '');
+		curl_setopt($ch, CURLOPT_URL, 'PUT YOUR GOOGLE SHEETS URL HERE WITH KEY');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);	
 		$response = curl_exec($ch);
