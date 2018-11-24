@@ -68,7 +68,6 @@ function billing_user_balance($last = '', $first = '') {
 			throw new Exception('failed to initialize');
 		}
 		$curl_URL = $sheetsURL . '?key=' . $apiKey;
-		// https://sheets.googleapis.com/v4/spreadsheets/1bH6LmIsDQQdd1Beiq1s9fI-SuYRoGYmBc-_IYrpux_g/values/A1:B40?key=AIzaSyCGDFEmXaIUpDrgN6hx9Uq8MrtIzPqQAT0
 		curl_setopt($ch, CURLOPT_URL, $curl_URL);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);	
