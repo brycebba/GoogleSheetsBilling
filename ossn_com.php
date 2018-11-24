@@ -9,10 +9,13 @@ define('__BILLING__', ossn_route()->com . 'GoogleSheetsBilling/');
  * @return void
  */
 function billing_user() {
-	ossn_profile_subpage('billing');
-	
+	ossn_profile_subpage('billing');	
 	ossn_register_callback('page', 'load:profile', 'profile_billing_user');
 	ossn_add_hook('profile', 'subpage', 'profile_billing_user_page');
+	ossn_register_com_panel('GoogleSheetsBilling', 'settings');
+	if (ossn_isAdminLoggedin()) {
+        ossn_register_action('googlesheetsbilling/settings', __BILLING__ . 'actions/GoogleSheetsBilling/administrator/settings.php');
+	}
 }
 
 /**
@@ -23,7 +26,7 @@ function profile_billing_user() {
 	$url   = ossn_site_url();
 
 	if(ossn_isLoggedin()) {
-		ossn_register_menu_link('billinguser', 'Billing', $owner->profileURL('/billing'), 'user_timeline');
+		ossn_register_menu_link('googlesheetsbillinguser', 'Billing', $owner->profileURL('/billing'), 'user_timeline');
 	}
 }
 
@@ -61,7 +64,7 @@ function billing_user_balance($last = '', $first = '') {
 			throw new Exception('failed to initialize');
 		}
 	
-		curl_setopt($ch, CURLOPT_URL, 'PUT YOUR GOOGLE SHEETS URL HERE WITH KEY');
+		curl_setopt($ch, CURLOPT_URL, 'https://sheets.googleapis.com/v4/spreadsheets/1bH6LmIsDQQdd1Beiq1s9fI-SuYRoGYmBc-_IYrpux_g/values/A1:B40?key=AIzaSyCGDFEmXaIUpDrgN6hx9Uq8MrtIzPqQAT0');
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);	
 		$response = curl_exec($ch);

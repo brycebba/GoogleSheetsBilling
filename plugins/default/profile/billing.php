@@ -4,7 +4,7 @@
  * @author    balfred
  */
  ?>
-<table class="billinguser">
+<table class="googlesheetsbillinguser">
   <tr>
     <th scope="row"><?php echo ossn_print('name');?></th>
     <td><?php echo $params['user']->fullname;?></td>
