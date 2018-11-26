@@ -4,10 +4,9 @@
     <id>GoogleSheetsBilling</id>
     <author>balfred</author>
     <description>Uses a google sheets to find the balance for the logged in user and for admin users displays the sheets editor in the Profile/Billing subpage</description>
-    <license>Open Source Social Network License (OSSN LICENSE) v3.0</license>
+    <license>GNU</license>
     <author_url>none/</author_url>
-    <license_url>http://www.opensource-socialnetwork.org/licence/</license_url>
-    <version>1.0</version>
+    <version>1.1</version>
 	<requires>
 		<type>ossn_version</type>
 		<version>4.0</version>

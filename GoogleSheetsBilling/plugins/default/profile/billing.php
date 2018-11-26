@@ -15,5 +15,8 @@
   </tr>
 </table>
 <div <?php if (ossn_isAdminLoggedin()) {echo 'display="display"';} else {echo 'hidden="hidden"';}?>>
-  <iframe src="<?php if (ossn_isAdminLoggedin()) {$component = new OssnComponents; $settings = $component->getSettings('GoogleSheetsBilling'); echo $settings->sheetsEditURL;}?>" style="width: 100%;" onload="this.height=screen.height*0.45;" ></iframe>
+  <iframe class="visible-md-inline visible-lg-inline visible-xl-inline" src="<?php if (ossn_isAdminLoggedin()) {$component = new OssnComponents; $settings = $component->getSettings('GoogleSheetsBilling'); echo $settings->sheetsEditURL;}?>" style="width: 100%;" onload="this.height=screen.height*0.45;" ></iframe>
+  <form class="visible-xs-inline visible-sm-inline" method="get" action="<?php if (ossn_isAdminLoggedin()) {$component = new OssnComponents; $settings = $component->getSettings('GoogleSheetsBilling'); echo $settings->sheetsEditURL;}?>">
+    <button class="btn btn-primary" type="submit">Edit In Google Sheets</button>
+  </form>
 </div>
